@@ -1,0 +1,21 @@
+
+# Ignore the classes 
+*.class
+
+# Ignore the log files
+*.log
+
+# Ignore the env file
+config.env
+
+# Ignore the target file 
+target/
+
+# Ignore the jar/war
+*.jar
+*.war
+
+# Ignore the project configs
+.project
+.classpath
+.settings/
