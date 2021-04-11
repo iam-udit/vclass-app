@@ -165,12 +165,26 @@ public class User implements Model  {
 	}
 
 	/**
+	 * @param createdAt the create date to set
+	 */
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	/**
 	 * @return the createdAt
 	 */
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
+	/**
+	 * @param updatedAt the update date to set
+	 */
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
 	/**
 	 * @return the updatedAt
 	 */

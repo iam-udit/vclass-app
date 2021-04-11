@@ -2,6 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 	
 
+
+<!-- Include Header Section -->
+
+	<%@ include file = "../layout/frontend/header.jsp" %>
+	
+<!-- End Header Section -->
+
+
 <!-- Start content section -->
 <div class="wrapper col3">
 	<div id="featured_slide">
@@ -115,3 +123,10 @@
 </div>
 
 <!-- End content section -->
+
+
+<!-- Include Footer Section -->
+
+	<%@ include file = "../layout/frontend/footer.jsp" %>
+
+<!-- End Footer Section -->

@@ -57,10 +57,13 @@ public class DBUtility {
 		try {
 			if (connection == null || connection.isClosed()) {
 				
+				// Register the DB driver 
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				
 				// Establish the DB connection
 				connection = DriverManager.getConnection(DB_URL, DB_USER_NAME, DB_PASSWORD);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			
 			// Throw the connection failed exception
 			throw new ConnectionFailedException("Database connection failed ! \n" 

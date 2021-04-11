@@ -142,3 +142,75 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 #copyright{padding:15px 0;}
 #copyright p{margin:0; padding:0;}
+
+
+
+
+body {
+	background-color: #fcfcf1;
+}
+
+/* Set border for registration page */
+#login {
+	border: 1px solid #591434;
+	margin: 3em 30em 3em 30em;
+	padding: 20px;
+	background-color: rgb(200, 200, 200);
+}
+/* End of registration page style */
+
+/* Style the heading */
+.heading {
+	margin-top: -50px;
+	background-color: #591434;
+}
+.heading #caption {
+	padding: 5px;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
+/* End of heading style */
+
+/* Style the login form */
+.form {
+	margin: 50px 50px 0px 50px;
+}
+
+input {
+	border-color: #591434;
+	margin: 4px 0px 10px 0px;
+	padding: 2px;
+}
+
+label {
+	font-weight: inherit;
+}
+
+#username, #password {
+	width: 100%;
+}
+
+.error {
+	margin: -4px 0px 5px 0px;
+	color: red;
+	display: none;
+}
+
+#submit {
+	margin: 3em 1em 1em 13em;
+	border: 2px solid #591434;
+	color: #591434;
+	background-color: rgb(210, 210, 210);
+	padding: 5px 10px 5px 10px;
+}
+#loginError {
+	margin: -10px 0px 30px 0px;
+	background-color: white;
+	color: red;
+	font-weight: bold;
+	padding: 10px;
+	text-align: center;
+}
+/* End of registration form style */
+
