@@ -22,34 +22,63 @@ import com.mindtree.vclass.utility.DBUtility;
  * @author D-HDKR
  * @version 1.0
  */
-public class UserDao implements DAO<User> {
+public class UserDAO implements DAO<User> {
 
 	/**
 	 * Instantiate the dao
 	 */
-	public UserDao() {
+	public UserDAO() {
 		super();
 	}
 	
 	@Override
 	/**
-	 * Get a user details from DB
+	 * Get a user details from DB by id
 	 * 
-	 * @param username email of the user
+	 * @param id id of the user
 	 * @return return user details if found, otherwise null
 	 * @throws DAOException if any DAO exception occure
 	 */
-	public User read(Object username) throws DAOException {
+	public User read(long id) throws DAOException {
 		
 		User user = null;
 		
 		try {
 			
-			// Get all the user details
-			List<User> users = read();
+			// Get the user details by filtering username
+			Optional<User> optionalUser = read().stream()
+					.filter(tempUser -> (tempUser.getId() == id)).findFirst();
+			
+			if (optionalUser.isPresent()) {
+				
+				// Store the user details 
+				user = optionalUser.get();
+			}
+		}  catch (DAOException daoException) {
+			
+			// Throw the DAO exception
+			throw daoException;
+		}
+		
+		return user;
+	}
+	
+	@Override
+	/**
+	 * Get a user details from DB by username
+	 * 
+	 * @param username email of the user
+	 * @return return user details if found, otherwise null
+	 * @throws DAOException if any DAO exception occure
+	 */
+	public User read(String username) throws DAOException {
+		
+		User user = null;
+		
+		try {
 			
 			// Get the user details by filtering username
-			Optional<User> optionalUser = users.stream().filter(tempUser -> 
+			Optional<User> optionalUser = read().stream().filter(tempUser -> 
 					(tempUser.getUsername().equals(username))).findFirst();
 			
 			if (optionalUser.isPresent()) {
@@ -65,6 +94,7 @@ public class UserDao implements DAO<User> {
 		
 		return user;
 	}
+	
 
 	@Override
 	/**
@@ -176,7 +206,7 @@ public class UserDao implements DAO<User> {
 			preparedStatement.setByte(2, user.getAge());
 			preparedStatement.setString(3, user.getUsername());
 			preparedStatement.setString(4, user.getPassword());
-			
+
 			preparedStatement.executeUpdate();
 			
 			// Get the deleted user id
@@ -184,7 +214,7 @@ public class UserDao implements DAO<User> {
 			long userID = resultSet.next() ? resultSet.getLong(1) : 0;
 			utility.closeResource(preparedStatement);
 			utility.closeResource(resultSet);
-			
+
 			// Get the id of the selected role
 			preparedStatement = 
 					connection.prepareStatement("SELECT id FROM roles WHERE name = ?");
@@ -204,18 +234,28 @@ public class UserDao implements DAO<User> {
 			
 			// Store user address details
 			String CREATE_ADDRESS_SQL = 
-					"INSERT INTO address(city, state, country, pin) VALUES(?, ?, ?, ?)";
+					"INSERT INTO addresses(user_id, city, state, country, pin) VALUES(?, ?, ?, ?, ?)";
 			
 			preparedStatement = connection.prepareStatement(CREATE_ADDRESS_SQL);
+			preparedStatement.setLong(1, userID);
 			
 			Map<String, String> address = user.getAddress();
-			preparedStatement.setString(1, address.get("city"));
-			preparedStatement.setString(2, address.get("state"));
-			preparedStatement.setString(3, address.get("country"));
-			preparedStatement.setString(4, address.get("pin"));		
+			preparedStatement.setString(2, address.get("city"));
+			preparedStatement.setString(3, address.get("state"));
+			preparedStatement.setString(4, address.get("country"));
+			preparedStatement.setString(5, address.get("pin"));		
 			preparedStatement.executeUpdate();
 			
+			// Commit the inserted record
+			connection.commit();
+			isUserCreated = true;
+			
 		}  catch (ConnectionFailedException | SQLException e) {
+			
+			// Rollback the insert details
+			try {
+				connection.rollback();
+			} catch (SQLException | NullPointerException e1) {}
 			
 			// Wrap and throw the SQL/ConnectionFailed into DAO exception
 			throw new DAOException(e.getMessage(), e.getCause());
@@ -291,7 +331,7 @@ public class UserDao implements DAO<User> {
 			// Role back the update data
 			try {
 				connection.rollback();
-			} catch (SQLException e1) {}
+			} catch (SQLException | NullPointerException e1) {}
 				
 			// Wrap and throw the SQL/ConnectionFailed into DAO exception
 			throw new DAOException(e.getMessage(), e.getCause());
@@ -313,7 +353,7 @@ public class UserDao implements DAO<User> {
 	 * @return return true if user details updated, otherwise false
 	 * @throws DAOException if any DAO exception occure
 	 */
-	public boolean delete(Object username) throws DAOException {
+	public boolean delete(String username) throws DAOException {
 		
 		boolean isUserDeleted = false;
 		DBUtility utility = new DBUtility();
@@ -334,7 +374,7 @@ public class UserDao implements DAO<User> {
 			String DELETE_USER_SQL = "DELETE FROM users WHERE username = ?";
 			preparedStatement = 
 					connection.prepareStatement(DELETE_USER_SQL, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, (String) username);
+			preparedStatement.setString(1, username);
 			preparedStatement.executeUpdate();
 						
 			// Get the deleted user id
