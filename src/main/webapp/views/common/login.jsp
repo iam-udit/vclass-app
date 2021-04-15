@@ -2,8 +2,10 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 
 <!-- Include Header Section -->
-
-	<%@ include file = "../layout/frontend/header.jsp" %>
+	
+	<jsp:include page="../layout/frontend/header.jsp">
+		<jsp:param name="title" value="Login" />
+	</jsp:include> 
 	
 <!-- End Header Section -->
 
@@ -63,6 +65,6 @@
 
 <!-- Include Footer Section -->
 
-	<%@ include file = "../layout/frontend/footer.jsp" %>
+	<jsp:include page="../layout/frontend/footer.jsp" /> 
 
 <!-- End Footer Section -->
