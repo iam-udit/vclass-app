@@ -13,9 +13,10 @@ import com.mindtree.vclass.exception.DAOException;
  */
 public interface DAO <T> {
 
-	public T read(Object value) throws DAOException;
+	public T read(long id) throws DAOException;
+	public T read(String value) throws DAOException;
 	public List<T> read() throws DAOException;
 	public boolean create(T t) throws DAOException;
 	public boolean update(T t) throws DAOException;
-	public boolean delete(Object value) throws DAOException;
+	public boolean delete(String value) throws DAOException;
 }
