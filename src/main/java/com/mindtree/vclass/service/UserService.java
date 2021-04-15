@@ -3,7 +3,7 @@ package com.mindtree.vclass.service;
 import java.util.List;
 
 import com.mindtree.vclass.dao.DAO;
-import com.mindtree.vclass.dao.UserDao;
+import com.mindtree.vclass.dao.UserDAO;
 import com.mindtree.vclass.exception.DAOException;
 import com.mindtree.vclass.exception.DuplicateFlagException;
 import com.mindtree.vclass.exception.NotFoundException;
@@ -27,7 +27,7 @@ public class UserService implements Service<User> {
 	public UserService() {
 		
 		super();
-		dao = new UserDao();
+		dao = new UserDAO();
 	}
 	
 	@Override
@@ -60,6 +60,32 @@ public class UserService implements Service<User> {
 		
 		return isExists;
 	}
+	
+	@Override
+	/**
+	 * Read a user details by id
+	 *  
+	 * @param id id of the user
+	 * @return return user details if found, otherwise null
+	 * @throws ServiceException if any service exception occur
+	 */
+	public User read(long id) throws ServiceException {
+		
+		User user = null;
+		
+		try {
+			
+			// Read the user details from DB
+			user = dao.read(id);
+			
+		} catch (DAOException e) {
+			
+			// Wrap and throw the Dao exception into service 
+			throw new ServiceException(e.getMessage(), e.getCause());
+		}
+			
+		return user;
+	}
 
 	@Override
 	/**
@@ -69,7 +95,7 @@ public class UserService implements Service<User> {
 	 * @return return user details if found, otherwise null
 	 * @throws ServiceException if any service exception occur
 	 */
-	public User read(Object username) throws ServiceException {
+	public User read(String username) throws ServiceException {
 		
 		User user = null;
 		
@@ -187,7 +213,7 @@ public class UserService implements Service<User> {
 	 * @return return true if the user details deleted, otherwise false
 	 * @throws ServiceException if any service exception occure	 
 	 */
-	public boolean delete(Object username) throws ServiceException {
+	public boolean delete(String username) throws ServiceException {
 
 		boolean isUserDeleted = false;
 		
