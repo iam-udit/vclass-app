@@ -13,10 +13,11 @@ import com.mindtree.vclass.exception.ServiceException;
 public interface Service <T> {
 
 	public boolean isExists(String value) throws ServiceException;
-	public T read(Object object) throws ServiceException;
+	public T read(long id) throws ServiceException;
+	public T read(String value) throws ServiceException;
 	public List<T> read() throws ServiceException;
 	public boolean create(T t) throws ServiceException;
 	public boolean update(T t) throws ServiceException;
-	public boolean delete(Object value) throws ServiceException;
+	public boolean delete(String value) throws ServiceException;
 
 }
