@@ -58,6 +58,24 @@
 	         <artifactId>maven-site-plugin</artifactId>
 	         <version>3.7.1</version>
 	       </plugin>
+			<plugin>
+			    <groupId>org.sonarsource.scanner.maven</groupId>
+			    <artifactId>sonar-maven-plugin</artifactId>
+			    <version>3.8.0.2131</version>
+			</plugin>
     	</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>sonar-qube</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.host.url>http://localhost:8085</sonar.host.url>
+				<sonar.login>admin</sonar.login>
+				<sonar.password>udit6899</sonar.password>
+			</properties>
+		</profile>
+	</profiles>
 </project>
