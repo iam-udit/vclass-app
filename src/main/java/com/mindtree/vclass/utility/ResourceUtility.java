@@ -32,7 +32,7 @@ public class ResourceUtility {
 			configuration.load(configFile);
 			
 			// Close file resources
-			//configFile.close();
+			configFile.close();
 
 		} catch (IOException e) {
 			
