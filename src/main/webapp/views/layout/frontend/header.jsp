@@ -1,10 +1,11 @@
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	<%@page import="com.mindtree.vclass.model.User"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>V-Class</title>
+		<title>${ param.title }</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="assets/styles/layout.css" type="text/css" />
 		<script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
@@ -29,7 +30,13 @@
 				<ul>
 					<li class="last"><a href="#">Search</a></li>
 					<li><a href="#">School Board</a></li>
-					<li><a href="login">Login Here</a></li>
+					
+					<% if (session.getAttribute("user") != null) { %>
+						<li><a href="logout">Logout</a></li>
+					<% } else if (!request.getServletPath().equals("/views/common/login.jsp")) {%>
+						<li><a href="login">Login Here</a></li>
+					<% } %>
+					
 				</ul>
 				<p>Tel: xxx xxxxxxxxxx | Mail: info@vclass.com</p>
 			</div>
@@ -41,9 +48,23 @@
 		<div id="topnav">
 			<ul>
 				<li class="active"><a href="home">Home</a></li>
-				<li><a href="pages/style-demo.html">News</a></li>
-				<li><a href="pages/full-width.html">Classes</a></li>
-				<li><a href="pages/full-width.html">About</a></li>
+				
+				<%
+					User user = (User) session.getAttribute("user");
+					if ( user != null && user.getRole().equals("Admin")) { 
+				%>
+				
+					<li><a href='admin/dashboard'>Dashboard</a></li>
+	
+				<% } else if (user != null && user.getRole().equals("Staff")) { %>
+						
+					<li><a href='staff/dashboard'>Dashboard</a></li>
+					
+				<% } %>
+				
+				<li><a href="#">News</a></li>
+				<li><a href="#">Classes</a></li>
+				<li><a href="#">About</a></li>
 				<li class="last"><a href="#">Contact us</a></li>				
 			</ul>
 		</div>
