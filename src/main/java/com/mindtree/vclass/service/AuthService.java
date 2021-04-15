@@ -2,7 +2,7 @@ package com.mindtree.vclass.service;
 
 import javax.servlet.http.HttpSession;
 
-import com.mindtree.vclass.dao.UserDao;
+import com.mindtree.vclass.dao.UserDAO;
 import com.mindtree.vclass.exception.DAOException;
 import com.mindtree.vclass.exception.NotFoundException;
 import com.mindtree.vclass.exception.ServiceException;
@@ -41,7 +41,7 @@ public class AuthService {
 				
 				// Read the user details from DB
 				String originalPassword = 
-						new UserDao().read(user.getUsername()).getPassword();
+						new UserDAO().read(user.getUsername()).getPassword();
 				
 				if (user.getPassword().equals(originalPassword)) {
 					
