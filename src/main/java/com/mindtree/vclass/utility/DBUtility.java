@@ -19,7 +19,7 @@ import com.mindtree.vclass.exception.ConnectionFailedException;
 public class DBUtility {
 
 	
-	private static Connection connection;
+	private Connection connection;
 	private static final String DB_USER_NAME;
 	private static final String DB_PASSWORD;
 	private static final String DB_URL;
