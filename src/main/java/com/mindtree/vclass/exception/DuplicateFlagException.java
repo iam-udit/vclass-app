@@ -51,12 +51,4 @@ public class DuplicateFlagException extends ServiceException {
 			boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
-	
-	@Override
-	/**
-	 * Return the message of the exception
-	 */
-	public String getMessage() {
-		return super.getMessage();
-	}
 }

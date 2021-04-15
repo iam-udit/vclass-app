@@ -51,12 +51,4 @@ public class NotFoundException extends ServiceException {
 	public NotFoundException(Throwable cause) {
 		super(cause);
 	}
-	
-	@Override
-	/**
-	 * Return the message of the exception
-	 */
-	public String getMessage() {
-		return super.getMessage();
-	}
 }

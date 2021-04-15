@@ -51,12 +51,4 @@ public class ConnectionFailedException extends DAOException {
 	public ConnectionFailedException(Throwable cause) {
 		super(cause);
 	}
-	
-	@Override
-	/**
-	 * Return the message of the exception
-	 */
-	public String getMessage() {
-		return super.getMessage();
-	}
 }
