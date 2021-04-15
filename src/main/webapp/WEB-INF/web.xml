@@ -3,10 +3,11 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  
+
+  <display-name>Vclass Application</display-name>
+
   <welcome-file-list>
-  	<welcome-file>views/layout/frontend/app.jsp</welcome-file>
+  	<welcome-file>views/common/home.jsp</welcome-file>
   </welcome-file-list>
   
-  <display-name>Vclass Application</display-name>
 </web-app>

@@ -1,45 +1,39 @@
-package com.mindtree.vclass.controller;
+package com.mindtree.vclass.controller.staff;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
- * Servlet implementation class HomeController is used to provide
- * implemenataion of various home operation
- * 
- * @author D-HDKR
- * @version 1.0
+ * Servlet implementation class Dashboard
  */
-@WebServlet("/home")
-public class HomeController extends HttpServlet {
-	
+@WebServlet("/staff/dashboard")
+public class DashboardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * Initialize the Home Controller
-     * 
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public DashboardController() {
         super();
     }
-    
+
 	/**
-	 * Redirect to home page
-	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
+	protected void doGet(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		
+
     	try {
-    		
+    			
     		// Forward to appication home page
-    		request.getRequestDispatcher("views/common/home.jsp")
+    		request.getRequestDispatcher("../views/staff/dashboard.jsp")
     		.forward(request, response);
     		
 		} catch (ServletException e) {

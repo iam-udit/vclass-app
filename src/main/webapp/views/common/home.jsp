@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 	
+
+
+<!-- Include Header Section -->
+
+	<jsp:include page="../layout/frontend/header.jsp">
+		<jsp:param name="title" value="V-Class" />
+	</jsp:include> 
+	
+<!-- End Header Section -->
+
 
 <!-- Start content section -->
 <div class="wrapper col3">
@@ -115,3 +125,10 @@
 </div>
 
 <!-- End content section -->
+
+
+<!-- Include Footer Section -->
+
+	<jsp:include page="../layout/frontend/footer.jsp" /> 
+
+<!-- End Footer Section -->

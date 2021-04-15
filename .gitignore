@@ -7,6 +7,7 @@
 
 # Ignore the env file
 config.env
+config.properties
 
 # Ignore the target file 
 target/
@@ -19,3 +20,6 @@ target/
 .project
 .classpath
 .settings/
+
+# Ignore the resources
+src/main/resources/upload
