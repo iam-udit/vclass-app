@@ -32,10 +32,16 @@ public class AdminRouteFilter implements Filter {
     	super();
     }
 
-	/**
+	
+    @Override
+    /**
+	 * Destroy the filter life cycle
+	 * 
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
+		
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -78,10 +84,15 @@ public class AdminRouteFilter implements Filter {
 		}
 	}
 
+	@Override
 	/**
+	 * Initilaze the filter life cycle
+	 * 
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
+		
+		throw new UnsupportedOperationException();
 	}
 
 }
