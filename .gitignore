@@ -22,4 +22,4 @@ target/
 .settings/
 
 # Ignore the resources
-src/main/resources/
+src/main/resources/upload
