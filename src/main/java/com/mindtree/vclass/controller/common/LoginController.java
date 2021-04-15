@@ -1,7 +1,6 @@
 package com.mindtree.vclass.controller.common;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,14 +23,14 @@ import com.mindtree.vclass.service.UserService;
  * @version 1.0
  */
 @WebServlet("/login")
-public class Login extends HttpServlet {
+public class LoginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public LoginController() {
     	
         super();
     }
@@ -49,7 +48,7 @@ public class Login extends HttpServlet {
 			
     		HttpSession session = request.getSession(false);
     		
-    		if (session.getAttribute("user") == null) {
+    		if (session == null || session.getAttribute("user") == null) {
 				
         		// Forward to the login view
     			request.getRequestDispatcher("views/common/login.jsp")
