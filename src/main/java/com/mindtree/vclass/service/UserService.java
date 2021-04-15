@@ -217,7 +217,7 @@ public class UserService implements Service<User> {
 
 		boolean isUserDeleted = false;
 		
-		if (isExists((String) username)) {
+		if (isExists(username)) {
 			
 			try {
 				
