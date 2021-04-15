@@ -107,17 +107,17 @@ public class Lession implements Model  {
 	 */
 	public User getUser() {
 		
-		User user = null;
-		
+		User userDetails = null;
+			
 		try {
 			// Retrive the user details 
-			user = new UserDAO().read(this.user);
+			userDetails = new UserDAO().read(this.user);
 		} catch (DAOException e) {
 			// Log the exception message
 			System.out.println(e.getMessage());
 		}
 		
-		return user;
+		return userDetails;
 	}
 
 
