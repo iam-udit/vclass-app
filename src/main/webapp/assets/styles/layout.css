@@ -15,7 +15,7 @@ File: Layout CSS
 @import url("loginslider.css");
 
 html{overflow-y:scroll;}
-body{margin:0; padding:0; font-size:12px; font-family:verdana, Arial, Helvetica, sans-serif; color:#333333; background-color:#FFFFFF;}
+body{margin:0; padding:0; font-size:12px; font-family:verdana, Arial, Helvetica, sans-serif; color:#333333; background-color: #fcfcf1;}
 
 .justify{text-align:justify;}
 .bold{font-weight:bold;}
@@ -143,12 +143,6 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #copyright{padding:15px 0;}
 #copyright p{margin:0; padding:0;}
 
-
-
-
-body {
-	background-color: #fcfcf1;
-}
 
 /* Set border for registration page */
 #login {
