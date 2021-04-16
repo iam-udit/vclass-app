@@ -43,13 +43,13 @@ public class StaffController extends HttpServlet {
         super();
     }
 
+    @Override
 	/**
 	 * Perform load balancing the request
 	 * 
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
 		
 		String route = request.getServletPath();
 		
