@@ -41,8 +41,7 @@ public class LoginController extends HttpServlet {
      * 
      * @see HttpServlet#doGeet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, 
-    		HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     	try {
 			
@@ -60,7 +59,7 @@ public class LoginController extends HttpServlet {
 				response.sendRedirect("home");
 			}
     		
-		} catch (IOException e) {
+		} catch (IOException | ServletException e) {
 			
 			// Log the service/IO exception details
 			System.out.println(e.getMessage());
@@ -73,8 +72,7 @@ public class LoginController extends HttpServlet {
 	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 	
 		try {
 			
