@@ -27,9 +27,7 @@ public class DashboardController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     	try {
     			
@@ -37,7 +35,7 @@ public class DashboardController extends HttpServlet {
     		request.getRequestDispatcher("../views/admin/dashboard.jsp")
     		.forward(request, response);
     		
-		} catch (ServletException e) {
+		} catch (ServletException | IOException e) {
 		
 			// Log the service/IO exception details
 			System.out.println(e.getMessage());
