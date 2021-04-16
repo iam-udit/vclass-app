@@ -70,7 +70,7 @@ public class SettingController extends HttpServlet {
 			Service<User> service = new UserService();
 			
 			// Get user new details
-			User admin = getAdminToUpdate(request, response);
+			User admin = getAdminToUpdate(request);
 
 			if (service.update(admin)) {
 
@@ -103,7 +103,7 @@ public class SettingController extends HttpServlet {
 	 * @param response
 	 * @return	return new student details to be update
 	 */
-	private User getAdminToUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private User getAdminToUpdate(HttpServletRequest request) {
 		
 		User admin = null;
 
