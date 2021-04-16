@@ -49,8 +49,7 @@ public class StudentController extends HttpServlet {
 	 * 
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
 		
 		String route = request.getServletPath();
 		
@@ -171,7 +170,7 @@ public class StudentController extends HttpServlet {
 				if (service.isExists(username)) {	
 					
 					// Get user new details
-					student = getStudentToUpdate(request, response);
+					student = getStudentToUpdate(request);
 
 					if (service.update(student)) {
 
@@ -203,10 +202,9 @@ public class StudentController extends HttpServlet {
 	 * Get updated student details 
 	 * 
 	 * @param request
-	 * @param response
 	 * @return	return new student details to be update
 	 */
-	private User getStudentToUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private User getStudentToUpdate(HttpServletRequest request) {
 		
 		User student = null;
 
