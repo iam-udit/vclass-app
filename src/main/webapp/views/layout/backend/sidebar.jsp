@@ -7,7 +7,7 @@
 	<% String role = ((User) request.getSession().getAttribute("user")).getRole().toLowerCase(); %>
 	
    <div class="bg-secondary border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading bg-dark text-light text-center"><b>V-Class</b></div>
+      <div class="sidebar-heading bg-dark text-light text-center"><strong>V-Class</strong></div>
       <div class="list-group list-group-flush">
         <a href="<%= request.getContextPath() + "/" + role + "/dashboard" %>" 
         	class="list-group-item list-group-item-action bg-secondary text-light">Dashboard</a>
