@@ -40,7 +40,7 @@
 			
 			<div class="body m">
 				
-				<iframe width="100%" height="315"
+				<iframe width="100%" height="315" title="Lession Video"
 				src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=1">
 				</iframe>
 				<br /><br /> <br />
