@@ -34,6 +34,7 @@ public class SettingController extends HttpServlet {
         super();
     }
 
+    @Override
 	/**
 	 * Redirect to admin profile view
 	 * 
@@ -54,6 +55,7 @@ public class SettingController extends HttpServlet {
 		}
 	}
 
+	@Override
 	/**
 	 * Update the admin profile details
 	 * 
@@ -68,7 +70,7 @@ public class SettingController extends HttpServlet {
 			Service<User> service = new UserService();
 			
 			// Get user new details
-			User admin = getAdminToUpdate(request, response);
+			User admin = getStaffToUpdate(request);
 
 			if (service.update(admin)) {
 
@@ -98,10 +100,9 @@ public class SettingController extends HttpServlet {
 	 * Get updated admin details 
 	 * 
 	 * @param request
-	 * @param response
 	 * @return	return new student details to be update
 	 */
-	private User getAdminToUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private User getStaffToUpdate(HttpServletRequest request) {
 		
 		User admin = null;
 
