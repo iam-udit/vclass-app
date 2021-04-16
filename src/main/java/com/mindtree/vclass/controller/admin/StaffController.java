@@ -170,7 +170,7 @@ public class StaffController extends HttpServlet {
 				if (service.isExists(username)) {	
 					
 					// Get user new details
-					staff = getStaffToUpdate(request, response);
+					staff = getStaffToUpdate(request);
 
 					if (service.update(staff)) {
 
@@ -205,7 +205,7 @@ public class StaffController extends HttpServlet {
 	 * @param response
 	 * @return	return new staff details to be update
 	 */
-	private User getStaffToUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private User getStaffToUpdate(HttpServletRequest request) {
 		
 		User staff = null;
 
