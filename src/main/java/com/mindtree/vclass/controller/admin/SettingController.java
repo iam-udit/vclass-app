@@ -34,12 +34,13 @@ public class SettingController extends HttpServlet {
         super();
     }
 
+    @Override
 	/**
 	 * Redirect to admin profile view
 	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
 			
@@ -54,12 +55,13 @@ public class SettingController extends HttpServlet {
 		}
 	}
 
+    @Override
 	/**
 	 * Update the admin profile details
 	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 			
 		try {
