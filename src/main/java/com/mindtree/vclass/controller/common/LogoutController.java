@@ -28,6 +28,7 @@ public class LogoutController extends HttpServlet {
         super();
     }
 
+    @Override
 	/**
 	 * Log out the user account and invalid the session
 	 * 
