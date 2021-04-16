@@ -192,7 +192,7 @@ public class LessionController extends HttpServlet {
 				if (service.isExists(slug)) {
 
 					// Get lession new details
-					lession = getLessionToUpdate(request, response);
+					lession = getLessionToUpdate(request);
 
 					if (service.update(lession)) {
 
@@ -224,10 +224,9 @@ public class LessionController extends HttpServlet {
 	 * Get updated lession details
 	 * 
 	 * @param request
-	 * @param response
 	 * @return return new lession details to be update
 	 */
-	private Lession getLessionToUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private Lession getLessionToUpdate(HttpServletRequest request) {
 
 		Lession lession = null;
 
