@@ -147,12 +147,14 @@ public class LoginController extends HttpServlet {
 			Cookie usernameCookie =  new Cookie("username", username);
 			usernameCookie.setMaxAge(3600 * 24 * 30);
 			usernameCookie.setHttpOnly(true);
+			usernameCookie.setSecure(true);
 			usernameCookie.setPath("/");
 			
 			// Create password cookie
 			Cookie passwordCookie = new Cookie("password", password);
 			passwordCookie.setMaxAge(3600 * 24 * 30);
 			passwordCookie.setHttpOnly(true);
+			passwordCookie.setSecure(true);
 			passwordCookie.setPath("/");
 			
 			response.addCookie(usernameCookie);
