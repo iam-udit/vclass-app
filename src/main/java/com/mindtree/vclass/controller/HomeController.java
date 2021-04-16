@@ -42,7 +42,7 @@ public class HomeController extends HttpServlet {
     		request.getRequestDispatcher("views/common/home.jsp")
     		.forward(request, response);
     		
-		} catch (ServletException e) {
+		} catch (ServletException | IOException e) {
 		
 			// Log the service/IO exception details
 			System.out.println(e.getMessage());
