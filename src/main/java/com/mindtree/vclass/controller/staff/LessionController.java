@@ -45,14 +45,14 @@ public class LessionController extends HttpServlet {
 		super();
 	}
 
+	@Override
 	/**
 	 * Perform load balancing the request
 	 * 
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
 
 		String route = request.getServletPath();
 
@@ -96,7 +96,7 @@ public class LessionController extends HttpServlet {
 				response.sendError(404);
 				break;
 			}
-		} catch (IOException e) {
+		} catch (IOException | ServletException e) {
 
 			// Log the exception messages
 			System.out.println(e.getMessage());
@@ -110,8 +110,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void delete(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private void delete(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -156,8 +155,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void update(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	private void update(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -181,7 +179,7 @@ public class LessionController extends HttpServlet {
 				if (service.isExists(slug)) {
 
 					// Get lession new details
-					lession = getLessionToUpdate(request, response);
+					lession = getLessionToUpdate(request);
 
 					if (service.update(lession)) {
 
@@ -216,8 +214,7 @@ public class LessionController extends HttpServlet {
 	 * @param response
 	 * @return return new lession details to be update
 	 */
-	private Lession getLessionToUpdate(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	private Lession getLessionToUpdate(HttpServletRequest request ) {
 
 		Lession lession = null;
 
@@ -259,8 +256,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void create(HttpServletRequest request, 			
-			HttpServletResponse response) throws ServletException, IOException {
+	private void create(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
