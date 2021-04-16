@@ -52,8 +52,7 @@ public class LessionController extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
 
 		String route = request.getServletPath();
 
@@ -124,8 +123,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void delete(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private void delete(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -170,8 +168,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void update(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	private void update(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -230,8 +227,7 @@ public class LessionController extends HttpServlet {
 	 * @param response
 	 * @return return new lession details to be update
 	 */
-	private Lession getLessionToUpdate(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	private Lession getLessionToUpdate(HttpServletRequest request, HttpServletResponse response) {
 
 		Lession lession = null;
 
@@ -273,8 +269,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void create(HttpServletRequest request, 			
-			HttpServletResponse response) throws ServletException, IOException {
+	private void create(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -335,8 +330,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void index(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private void index(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -363,8 +357,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void show(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private void show(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -393,8 +386,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void getPendingLessions(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private void getPendingLessions(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
@@ -424,8 +416,7 @@ public class LessionController extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void approveLession(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+	private void approveLession(HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 
