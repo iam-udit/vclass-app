@@ -252,10 +252,12 @@ public class UserDAO implements DAO<User> {
 			
 		}  catch (ConnectionFailedException | SQLException e) {
 			
-			// Rollback the insert details
 			try {
+				// Rollback the insert details
 				connection.rollback();
-			} catch (SQLException | NullPointerException e1) {}
+			} catch (SQLException | NullPointerException e1) {
+				System.out.println(e1.getMessage());
+			}
 			
 			// Wrap and throw the SQL/ConnectionFailed into DAO exception
 			throw new DAOException(e.getMessage(), e.getCause());
@@ -328,10 +330,12 @@ public class UserDAO implements DAO<User> {
 			
 		}  catch (ConnectionFailedException | SQLException e) {
 			
-			// Role back the update data
 			try {
+				// Role back the update data
 				connection.rollback();
-			} catch (SQLException | NullPointerException e1) {}
+			} catch (SQLException | NullPointerException e1) {
+				System.out.println(e1.getMessage());
+			}
 				
 			// Wrap and throw the SQL/ConnectionFailed into DAO exception
 			throw new DAOException(e.getMessage(), e.getCause());
@@ -401,10 +405,12 @@ public class UserDAO implements DAO<User> {
 			
 		} catch (ConnectionFailedException | SQLException e) {
 			
-			// Role back the update data
 			try {
+				// Role back the update data
 				connection.rollback();
-			} catch (SQLException| NullPointerException e1) {}
+			} catch (SQLException| NullPointerException e1) {
+				System.out.println(e1.getMessage());
+			}
 				
 			// Wrap and throw the SQL/ConnectionFailed into DAO exception
 			throw new DAOException(e.getMessage(), e.getCause());
