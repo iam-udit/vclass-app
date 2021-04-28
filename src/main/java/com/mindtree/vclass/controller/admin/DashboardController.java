@@ -37,7 +37,7 @@ public class DashboardController extends HttpServlet {
     		
 		} catch (ServletException | IOException e) {
 		
-			// Log the service/IO exception details
+			
 			System.out.println(e.getMessage());
 		}
 	}
